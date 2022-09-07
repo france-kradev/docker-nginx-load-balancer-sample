@@ -1,0 +1,36 @@
+version: "3"
+services:
+  nginx-load-balancer:
+    restart: "always"
+    build: ./nginx
+    depends_on:
+      - api-service1
+      - api-service2
+      - api-service3
+      - api-service4
+    ports:
+      - 3000:80
+  api-service1:
+    restart: "always"
+    build: .
+    environment:
+      - PORT=3001
+      - SERVICE_NAME=api-service1
+  api-service2:
+    restart: "always"
+    build: .
+    environment:
+      - PORT=3002
+      - SERVICE_NAME=api-service2
+  api-service3:
+    restart: "always"
+    build: .
+    environment:
+      - PORT=3003
+      - SERVICE_NAME=api-service3
+  api-service4:
+    restart: "always"
+    build: .
+    environment:
+      - PORT=3004
+      - SERVICE_NAME=api-service4
