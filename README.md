@@ -1,5 +1,5 @@
 # Simple express server + dockerize nginx load balancer sample
-Running node server in nginx with multiple service with docker 
+Running node server in multiple instances 
 
 ## Build
 ```
